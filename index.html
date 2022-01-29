@@ -9,36 +9,41 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Gra o inflacji M2, część II.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Gra o inflacji M2, część II" startnode="6" creator="Twine" creator-version="2.3.16" ifid="DCE8F39B-974F-4F42-AD10-10973A2F1562" zoom="0.6" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"> @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+<tw-storydata name="Gra o inflacji M2, część II" startnode="5" creator="Twine" creator-version="2.3.16" ifid="DCE8F39B-974F-4F42-AD10-10973A2F1562" zoom="0.6" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"> @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Ustawienia" tags="" position="399,101.66666666666667" size="100,100">##Zmień wygląd gry
+.icon-counter {
+  font-size: 0.5em;
+  color: red;
+}
 
-Poniższe przyciski umożliwiają zmianę wyglądu gry. 
-(set: _styleLink to (macro: str-type _name, [
-	(out:)[(link:_name)[(Set:$STYLE to _name)(goto:&quot;Ustawienia&quot;)]]
-]))(_styleLink:&quot;Styl 1&quot;) ~ \
-(_styleLink:&quot;Styl 2&quot;) ~ \
-(_styleLink:&quot;Resetuj&quot;)
----
-
-[[Rozpocznij grę-&gt;Początek]] </tw-passagedata><tw-passagedata pid="2" name="Resetuj" tags="" position="525,101.66666666666667" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="Styl 2" tags="" position="780,100.66666666666667" size="100,100">(enchant:?page,
+.punkty {
+  font-size: 0.5em;
+    color: blue;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Resetuj" tags="" position="525,100" size="100,100"></tw-passagedata><tw-passagedata pid="2" name="Styl 2" tags="" position="780,99" size="100,100">(enchant:?page,
 	(font:&quot;sans-serif&quot;) +
-	(size:2) +
+	(size:1.2) +
 	(color:black) +
 	(bg:white)
 )(enchant:?link,
 	(color:blue) +
 	(hover-style: (color:blue) + (text-style:&#39;smear&#39;))
-)</tw-passagedata><tw-passagedata pid="4" name="Footer" tags="footer" position="900,101.66666666666667" size="100,100">(append:?sidebar)[(icon-fullscreen:)(icon-restart:)]\
-(if:$STYLE is a str)[(display:$STYLE)]
-</tw-passagedata><tw-passagedata pid="5" name="Styl 1" tags="" position="650,102.66666666666667" size="100,100">(enchant:?page,
+)</tw-passagedata><tw-passagedata pid="3" name="Footer" tags="footer" position="900,99.99999999999999" size="100,100">(append:?sidebar)[(b4r:&quot;dotted&quot;)+(b4r-colour:grey,grey,grey,grey)+(css: &quot;color: #565656;&quot;)[(icon-counter: bind $licznik, &quot;/6&quot;)(if:$licznik &gt; 6)[[🏆]]](icon-fullscreen:)(icon-restart:)]\
+(if:$STYLE is a str)[(display:$STYLE)]</tw-passagedata><tw-passagedata pid="4" name="Styl 1" tags="" position="650,101" size="100,100">(enchant:?page,
 	(bg:white) +
 	(color:black)
 )(enchant:?link, via (text-rotate-z:(random:-1,1)) +
 	(bg:yellow+orange) +
 	(color:black) +
 	(hover-style: (color:black) + (bg:orange))
-)</tw-passagedata><tw-passagedata pid="6" name="Start" tags="" position="196.33333333333334,98" size="100,100">Witaj w drugiej części gry o inflacji. W &lt;a href=&quot;https://gkwiatk.github.io/gra-inflacja/&quot; target=_blank&gt;pierwszej&lt;/a&gt; poznaliśmy koszty inflacji oraz ilościową teorię pieniądza.
+)</tw-passagedata><tw-passagedata pid="5" name="Start" tags="" position="189.6666666666667,96.33333333333333" size="100,100">Witaj w drugiej części gry o inflacji. W &lt;a href=&quot;https://gkwiatk.github.io/gra-inflacja/&quot; target=_blank&gt;pierwszej&lt;/a&gt; poznaliśmy koszty inflacji oraz ilościową teorię pieniądza. W tej wersji omówimy inne teorie (czynniki) inflacji, a także skupimy się na przyczynach aktualnej wysokiej inflacji w Polsce (oczywiście daleko nam do Zimbabwe!). 
+Ponadto, w tej wersji wprowadziłem kilka rozszerzeń m.in. zmianę wyglądu gry. Możesz tego dokonać klikając na poniższe przyciski:
+(set: _styleLink to (macro: str-type _name, [
+	(out:)[(link:_name)[(Set:$STYLE to _name)(goto:&quot;Start&quot;)]]
+]))(_styleLink:&quot;Styl 1&quot;) ~ \
+(_styleLink:&quot;Styl 2&quot;) ~ \
+(_styleLink:&quot;Resetuj&quot;)
+
+Dodałem także również przycisk, który uruchamia grę na pełnym ekranie (kwadratowa ikonka po lewej), a także przycisk restartu postępu i wyglądu gry (zaokrąglona strzałka). Oprócz tego na każdym etapie gry pojawia widoczny jest w tym miejscu licznik zebranych monet. Aby ją zebrać kliknij na tę ikonę monety (if:$m0 is 0)[(link: &quot;🪙&quot;)[(set: $licznik to it + 1)(set: $m0 to 1) Tak właśnie, to pierwsza z 7 monet w grze. Po zebraniu 6 pojawi się link do kodu bonusowego]].
 
 =|=
 Wpisz swoje imię:
@@ -52,36 +57,22 @@ Wpisz nazwisko:
 |==|
 Rodzaj gramatyczny (potrzebne do odmiany zwrotów): (dropdown: 2bind $rodzaj,&quot;żeński&quot;,&quot;męski&quot;)
 
-W tej wersji omówimy inne teorie inflacji, a także skupimy się na przyczynach aktualnej wysokiej inflacji w Polsce (oczywiście daleko nam do Zimbabwe!). 
-
-Ponadto w tej wersji wprowadziłem kilka udogonienień m.in. zmianę wyglądu gry. Możesz tego dokonać w [[ustawieniach-&gt;Ustawienia]].
-
-Dodałem również przycisk, który uruchamia grę na pełnym ekranie (icon-fullscreen:) 
-A także przycisk restartu postępu i wyglądu gry (icon-restart:). 
-Oba przyciski będą dostępne w menu po lewej stronie.
-
 Autor: Grzegorz Kwiatkowski
-[[Wersja 0.6.1]]
+[[Wersja 0.8]]
 [[Wykorzystane zasoby i materiały]]
 ---
 
-[[Rozpocznij grę-&gt;Początek]] </tw-passagedata><tw-passagedata pid="7" name="Początek" tags="" position="599.6666666666667,301" size="100,100">Witaj $imie $nazwisko!
-
-Jest połowa roku 2020. To początkowe miesiące pandemii koronawirusa i nowa rzeczywistość, zarówno gospodarcza, jak i polityczna, dopiero się kształtuje. Po latach spędzonych na zagranicznych uczelniach (m.in. w Zimbabwe w czasie hiperinflacji) postanawiasz wrócić do Polski, gdzie otrzymujesz kilka ofert pracy lub innego rodzaju aktywności. Są to m.in.
-
-[[Prowadzenie zajęć na jednej z polskich uczelni]]
-[[Założenie partii politycznej]] 
-[[Praca jako główny ekonomista w polskim oddziale jednej z wielkich firm technologicznych]] [[🕹]]
-
-
-
+[[Rozpocznij grę-&gt;Początek]] </tw-passagedata><tw-passagedata pid="6" name="Początek" tags="" position="598.0000000000001,299.3333333333333" size="100,100">Jest &#39;&#39;połowa roku 2020&#39;&#39;. To początkowe miesiące pandemii koronawirusa i nowa rzeczywistość, zarówno gospodarcza, jak i polityczna, dopiero się kształtuje. Po latach spędzonych na zagranicznych uczelniach (m.in. w Zimbabwe w czasie hiperinflacji) postanawiasz wrócić do Polski, gdzie otrzymujesz kilka ofert pracy lub innego rodzaju aktywności. Są to m.in.
+* [[Prowadzenie zajęć na jednej z polskich uczelni]]
+* [[Założenie partii politycznej]] 
+* [[Praca jako główny ekonomista w polskim oddziale jednej z wielkich firm technologicznych]] ([[🕹]])
 
 
 
 
 ---
-(text-style:&quot;superscript&quot;)[Zastrzeżenie! Treść gry zawiera m.in. pewne alternatywne scenariusze rozwoju wydarzeń np. w odniesieniu do rozwoju inflacji w Polsce w zależności od podjętych decyzji rządu. To jest pewna interpretacja różnych analiz, oparta na wiedzy ekonomicznej, ale jednak w żadnej mierze nie możemy mieć pewności, że //dokładnie// tak właśnie by się wydarzyło. Celem tych alternatywnych scenariuszy jest prezentacja mechanizmów ekonomicznych.]
-</tw-passagedata><tw-passagedata pid="8" name="Wersja 0.6.1" tags="" position="73,297" size="100,100">## Changelog
+(text-style:&quot;superscript&quot;)[Zastrzeżenie! Treść gry zawiera m.in. pewne alternatywne scenariusze rozwoju wydarzeń np. w odniesieniu do rozwoju inflacji w Polsce w zależności od podjętych decyzji rządu. To jest pewna interpretacja różnych analiz, oparta na wiedzy ekonomicznej, ale jednak w żadnej mierze nie możemy mieć pewności, że //dokładnie// tak właśnie by się wydarzyło. Celem tych alternatywnych scenariuszy jest prezentacja mechanizmów ekonomicznych. W tych scenariuszach nie chodzi o to, co rząd //powinien był// w Polsce zrobić, a raczej o to, jakie byłoby potencjalne konsekwencje określonych działań.]
+</tw-passagedata><tw-passagedata pid="7" name="Wersja 0.8" tags="" position="73,295.3333333333333" size="100,100">## Historia wersji
 0.1 - wprowadzenie opcji stylów (zmiana wyglądu)
 0.2 - bazowy scenariusz gry
 0.3 - dodanie kilku fajerwerków
@@ -89,20 +80,19 @@ Jest połowa roku 2020. To początkowe miesiące pandemii koronawirusa i nowa rz
 0.5 - dodanie zakończenia ścieżki politycznej
 0.6 - rozbudowanie &quot;wykładów&quot;
 0.6.1 - poprawa literówek
-0.7 - wywiad na końcu ścieżki politycznej
+0.7 - dodanie mechanizmu punktowego
+0.8 - tłumaczenie na końcu ścieżki politycznej
+0.81 - rodzaj gramatyczny
 
-## Roadmap
-- dodanie ilustracji i gifów.
-- dodanie większej liczby informacji dodatkowych ukrytych w emoji
-- rozbudowanie informacji dot. mierzenia cen z internetu
-- rodzaj gramatyczny
+
+## Plan
+0.9 – dodanie ilustracji i gifów.
+0.95 dodanie większej liczby informacji dodatkowych ukrytych w emoji
+2.0 - rozbudowanie informacji dot. mierzenia cen z internetu, dodanie większej liczby mechanizmów gry do ścieżki akademickiej, Poprawienie mechanizmu negocjacji projektu
 
 ## Podziękowania dla alfa-testerów gry
 dr J.C., mgr J.M. 
-
-## Na przyszłość
-- Dodanie większej liczby mechanizmów gry do ścieżki akademickiej. 
-- Poprawienie mechanizmu negocjacji.</tw-passagedata><tw-passagedata pid="9" name="Wykorzystane zasoby i materiały" tags="" position="200,300.6666666666667" size="100,100">## Źródła do treści
+</tw-passagedata><tw-passagedata pid="8" name="Wykorzystane zasoby i materiały" tags="" position="200,299" size="100,100">## Źródła do treści
 ### O polityce pieniężnej i inflacji
 &lt;a href=&quot;https://www.economicshelp.org/macroeconomics/inflation/causes-inflation/&quot; target=_blank&gt;https://www.economicshelp.org/macroeconomics/inflation/causes-inflation/&lt;/a&gt; 
 &lt;a href=&quot;https://www.ecb.europa.eu/ecb/educational/explainers/non-standard-measures/html/index.pl.html&quot; target=_blank&gt;https://www.ecb.europa.eu/ecb/educational/explainers/non-standard-measures/html/index.pl.html&lt;/a&gt; 
@@ -120,23 +110,24 @@ dr J.C., mgr J.M.
 Nazwy partii politycznych: &lt;a href=&quot;https://twitter.com/mitologiawsp/status/1163745908430974976&quot; target=_blank&gt;@MitologiaWsp&lt;/a&gt;] oraz &lt;a href=&quot;https://www.tygodnikpowszechny.pl/jak-zalozyc-partie-ktora-sie-przebije-160009&quot; target=_blank&gt;artykuł w Tygodniku Powszechnym&lt;/a&gt; 
 
 ## Wygląd gry
-&lt;a href=&quot;https://twine2.neocities.org/#introduction_example-stories&quot; target=_blank&gt;https://twine2.neocities.org/#introduction_example-stories&lt;/a&gt; </tw-passagedata><tw-passagedata pid="10" name="Prowadzenie zajęć na jednej z polskich uczelni" tags="" position="199,425.6666666666667" size="100,100">Aby uniknąć lokowania produktu, nie będziemy zdradzać nazwy uczelni, może poza podpowiedzią, że jest to jedna z uczelni we wschodniej Polsce, a jej patronką jest jedyna osoba, która otrzymała Nagrodę Nobla w dwóch różnych dziedzinach nauki[[🥇]].
+&lt;a href=&quot;https://twine2.neocities.org/#introduction_example-stories&quot; target=_blank&gt;https://twine2.neocities.org/#introduction_example-stories&lt;/a&gt; </tw-passagedata><tw-passagedata pid="9" name="Prowadzenie zajęć na jednej z polskich uczelni" tags="" position="199,424" size="100,100">Aby uniknąć lokowania produktu, nie będziemy zdradzać nazwy uczelni, może poza podpowiedzią, że jest to jedna z uczelni we wschodniej Polsce, a jej patronką jest jedyna osoba, która otrzymała Nagrodę Nobla w dwóch różnych dziedzinach nauki[[🥇]].
 
 Wprawdzie oferta z biznesu była znacznie korzystniejsza finansowo w porównaniu do pracy na uczelni, ale czego się nie robi dla misji, (link: &quot;prawda&quot;)[
 &lt;iframe src=&quot;https://giphy.com/embed/3ohhwrsMa5vLKra848&quot; width=&quot;480&quot; height=&quot;371&quot; frameBorder=&quot;0&quot; class=&quot;giphy-embed&quot; allowFullScreen&gt;&lt;/iframe&gt;]?
 
 Może i nie masz sześciocyfrowej pensji, ale za to masz tabliczkę na drzwiach z napisem prof. dr hab. $imie $nazwisko. 
 
-[[Czas na pierwszy wykład]].</tw-passagedata><tw-passagedata pid="11" name="Założenie partii politycznej" tags="" position="603.6666666666667,427.66666666666663" size="100,100">Wpisz nazwę Twojej partii w pole poniżej.
-A jeśli potrzebujesz inspiracji – rzuć kostką (link: &quot;🎲&quot;)[(either: &quot;Narodowy/a&quot;, &quot;Polski/a&quot;, &quot;Europejski/a&quot;, &quot;Konserwatywny/a&quot;, &quot;Progresywny/a&quot;, &quot;Patriotyczny/a&quot;, &quot;Rewolucyjny/a&quot;, &quot;Radykalny/a&quot;, &quot;Najlepszy/a&quot;, &quot;Mega&quot;) (either: &quot;Partia&quot;, &quot;Ruch&quot;, &quot;Obóz&quot;, &quot;Liga&quot;, &quot;Sojusz&quot;, &quot;Związek&quot;, &quot;Koalicja&quot;, &quot;Unia&quot;, &quot;Front&quot;, &quot;Federacja&quot;, &quot;Ekipa&quot;) (either: &quot;na rzecz&quot;, &quot;Zwolenników&quot;, &quot;Obrońców&quot;, &quot;Jedności&quot;, &quot;Budowniczych&quot;, &quot;Ocalenia&quot;, &quot;Odrodzenia&quot;, &quot;Wspierania&quot;, &quot;Odbudowy&quot;) (either: &quot;Niepodległości&quot;, &quot;Postępu&quot;, &quot;Rozwoju&quot;, &quot;Gier Komputerowych&quot;, &quot;Rodziny&quot;, &quot;Wolności&quot;, &quot;Wsi&quot;, &quot;Dobrobytu&quot;, &quot;Czytelnictwa&quot;, &quot;Pracy&quot;, &quot;Wolnego Czasu&quot;, &quot;Piwa&quot;, &quot;Lasów&quot;, &quot;Kotów&quot;). Nie jest dobra? Wylosuj jeszcze raz: (link-rerun: &quot;🎲&quot;)[ (either: &quot;Narodowy/a&quot;, &quot;Polski/a&quot;, &quot;Europejski/a&quot;, &quot;Konserwatywny/a&quot;, &quot;Progresywny/a&quot;, &quot;Patriotyczny/a&quot;, &quot;Rewolucyjny/a&quot;, &quot;Radykalny/a&quot;, &quot;Najlepszy/a&quot;, &quot;Mega&quot;) (either: &quot;Partia&quot;, &quot;Ruch&quot;, &quot;Obóz&quot;, &quot;Liga&quot;, &quot;Sojusz&quot;, &quot;Związek&quot;, &quot;Koalicja&quot;, &quot;Unia&quot;, &quot;Front&quot;, &quot;Federacja&quot;, &quot;Ekipa&quot;) (either: &quot;na rzecz&quot;, &quot;Zwolenników&quot;, &quot;Obrońców&quot;, &quot;Jedności&quot;, &quot;Budowniczych&quot;, &quot;Ocalenia&quot;, &quot;Odrodzenia&quot;, &quot;Wspierania&quot;, &quot;Odbudowy&quot;) (either: &quot;Niepodległości&quot;, &quot;Postępu&quot;, &quot;Rozwoju&quot;, &quot;Gier Komputerowych&quot;, &quot;Rodziny&quot;, &quot;Wolności&quot;, &quot;Wsi&quot;, &quot;Dobrobytu&quot;, &quot;Czytelnictwa&quot;, &quot;Pracy&quot;, &quot;Wolnego Czasu&quot;, &quot;Piwa&quot;, &quot;Lasów&quot;, &quot;Kotów&quot;).]
+[[Czas na pierwszy wykład]].</tw-passagedata><tw-passagedata pid="10" name="Założenie partii politycznej" tags="" position="603.6666666666667,425.99999999999994" size="100,100">Wpisz nazwę Twojej partii w pole poniżej.
+A jeśli potrzebujesz inspiracji – rzuć kostką (link: &quot;🎲&quot;)[(either: &quot;Narodowy/a&quot;, &quot;Polski/a&quot;, &quot;Europejski/a&quot;, &quot;Konserwatywny/a&quot;, &quot;Progresywny/a&quot;, &quot;Patriotyczny/a&quot;, &quot;Rewolucyjny/a&quot;, &quot;Radykalny/a&quot;, &quot;Najlepszy/a&quot;, &quot;Mega&quot;) (either: &quot;Partia&quot;, &quot;Ruch&quot;, &quot;Obóz&quot;, &quot;Liga&quot;, &quot;Sojusz&quot;, &quot;Związek&quot;, &quot;Koalicja&quot;, &quot;Unia&quot;, &quot;Front&quot;, &quot;Federacja&quot;, &quot;Ekipa&quot;) (either: &quot;na rzecz&quot;, &quot;Zwolenników&quot;, &quot;Obrońców&quot;, &quot;Jedności&quot;, &quot;Budowniczych&quot;, &quot;Ocalenia&quot;, &quot;Odrodzenia&quot;, &quot;Wspierania&quot;, &quot;Odbudowy&quot;) (either: &quot;Niepodległości&quot;, &quot;Postępu&quot;, &quot;Rozwoju&quot;, &quot;Gier Komputerowych&quot;, &quot;Rodziny&quot;, &quot;Wolności&quot;, &quot;Wsi&quot;, &quot;Dobrobytu&quot;, &quot;Czytelnictwa&quot;, &quot;Pracy&quot;, &quot;Wolnego Czasu&quot;, &quot;Piwa&quot;, &quot;Lasów&quot;, &quot;Kotów&quot;). Nie jest dobra? Wylosuj jeszcze raz: (link-rerun: &quot;🎲&quot;)[ (either: &quot;Narodowy/a&quot;, &quot;Polski/a&quot;, &quot;Europejski/a&quot;, &quot;Konserwatywny/a&quot;, &quot;Progresywny/a&quot;, &quot;Patriotyczny/a&quot;, &quot;Rewolucyjny/a&quot;, &quot;Radykalny/a&quot;, &quot;Najlepszy/a&quot;, &quot;Mega&quot;) (either: &quot;Partia&quot;, &quot;Ruch&quot;, &quot;Obóz&quot;, &quot;Liga&quot;, &quot;Sojusz&quot;, &quot;Związek&quot;, &quot;Koalicja&quot;, &quot;Unia&quot;, &quot;Front&quot;, &quot;Federacja&quot;, &quot;Ekipa&quot;) (either: &quot;na rzecz&quot;, &quot;Zwolenników&quot;, &quot;Obrońców&quot;, &quot;Jedności&quot;, &quot;Budowniczych&quot;, &quot;Ocalenia&quot;, &quot;Odrodzenia&quot;, &quot;Wspierania&quot;, &quot;Odbudowy&quot;) (either: &quot;Niepodległości&quot;, &quot;Postępu&quot;, &quot;Rozwoju&quot;, &quot;Gier Komputerowych&quot;, &quot;Rodziny&quot;, &quot;Wolności&quot;, &quot;Wsi&quot;, &quot;Dobrobytu&quot;, &quot;Czytelnictwa&quot;, &quot;Pracy&quot;, &quot;Wolnego Czasu&quot;, &quot;Piwa&quot;, &quot;Lasów&quot;, &quot;Kotów&quot;, &quot;Makroekonomii&quot;).]
 
 Wybrany wynik skopiuj wynik w poniższe pole (ewentualnie dostosowując odmianę pierwszego wyrazu)].
 
-(input-box:2bind $partia,&quot;X=&quot;,1)
+(input-box:2bind $partia,&quot;X=&quot;,2)
+
 
 [[Początki działalności politycznej]]
 
-</tw-passagedata><tw-passagedata pid="12" name="Praca jako główny ekonomista w polskim oddziale jednej z wielkich firm technologicznych" tags="" position="803.3333333333333,434.6666666666667" size="100,100">Oferta wielkiej firmy prowadzącej m.in. platformę zakupową zaczynającej się od litery A była - mimo wszystko - znacznie korzystniejsza finansowo w porównaniu do pracy na uczelni. 
+</tw-passagedata><tw-passagedata pid="11" name="Praca jako główny ekonomista w polskim oddziale jednej z wielkich firm technologicznych" tags="" position="803.3333333333333,433" size="100,100">Oferta wielkiej firmy prowadzącej m.in. platformę zakupową zaczynającej się od litery A była - mimo wszystko - znacznie korzystniejsza finansowo w porównaniu do pracy na uczelni. 
 Pierwsze zadanie to projekt na zlecenie jednego z rządów krajów Europy Zachodniej dotyczące nowych metod mierzenia inflacji.
 (link: &quot;Nowych? A jakie są stare?&quot;)[
 Jeśli potrzebujesz przypomnieć sobie szczegóły nt. mierzenia inflacji za pomocą koszyka inflacyjnego to warto zajrzeć do następujących tekstów:
@@ -147,11 +138,11 @@ Jeśli potrzebujesz przypomnieć sobie szczegóły nt. mierzenia inflacji za pom
 
 W rezultacie otrzymujemy dane o inflacji wyłącznie co jakiś czas (w większości krajów co miesiąc). 
 ]
-[[Rozpocznij pracę]]</tw-passagedata><tw-passagedata pid="13" name="🕹" tags="" position="803.6666666666667,305.6666666666667" size="100,100">Co mogą robić ekonomiści w firmach (text-style:&quot;double-underline&quot;)[technologicznych]? Wbrew pozorom całkiem sporo. Ekonomiści są zatrudniani w firmach takich jak np. Amazon czy Uber, a pionierem wykorzystania wiedzy ekonomicznej był Hal Varian w Google.
+[[Rozpocznij pracę]]</tw-passagedata><tw-passagedata pid="12" name="🕹" tags="" position="803.6666666666667,302.3333333333333" size="100,100">Co mogą robić ekonomiści w firmach (text-style:&quot;double-underline&quot;)[technologicznych]? Wbrew pozorom całkiem sporo. Ekonomiści są zatrudniani w firmach takich jak np. Amazon czy Uber, a pionierem wykorzystania wiedzy ekonomicznej był Hal Varian w Google.
 
 (link: &quot;Kim jest Hal Varian poza byciem ekonomistą w Google?&quot;)[&lt;img src=&quot;https://i.imgur.com/Ia2K5Cn.png&quot;&gt;
 To emerytowany profesor Uniwersytetu Kalifornijskiego w Berkeley, a także autor jednego z najbardziej zmatematyzowanych podręczników do mikroekonomii (można zajrzeć i trochę &quot;poskrollować&quot; - &lt;a href=&quot;https://faculty.ksu.edu.sa/sites/default/files/microeco-_varian.pdf&quot; target=_blank&gt;link&lt;/a&gt;) oraz twórca ciekawej tzw. reguły Variana. Głosi ona, że to dobra i usługi, z których bogaci mogą korzystać dziś, osoby o średnich dochodach będą mieć za ok. 10 lat, a osoby ubogie za kolejną dekadę.]
-
+(if:$m3a is 0)[(link: &quot;🪙&quot;)[(set: $licznik to it + 1)(set: $m3a to 1)]]
 
 Jakie zadania ekonomiści tam wykonują? Wykorzystują swoją wiedzę i umiejętności w pracy z danymi np. analizując, gdzie ulokować siedzibę firmy. A wszyscy wiemy, że firmy technologiczne mają do dyspozycji ogromne zasoby danych i możliwości ich analizy.
 
@@ -163,7 +154,7 @@ Więcej na ten temat - &lt;a href=&quot;https://edition.cnn.com/2019/03/13/tech/
 
 Oczywiście nie każdy absolwent studiów ekonomicznych ma od razu szansę na taką posadę. Aby to zrobić, warto zdobywać nie tylko wiedzę ekonomiczną (która jest podstawą), ale także wyżej wspomniane umiejętności pracy z danymi. I pamiętać, że ekonomista aktualnie jest w Polsce jednym z najbardziej nadwyżkowych zawodów, a więc warto wyróżnić się na rynku pracy czymś jeszcze 
 
-[[Powrót-&gt;Początek]] </tw-passagedata><tw-passagedata pid="14" name="Pozytywnie nastrojony rozpoczynasz pierwszy wykład" tags="" position="200.33333333333334,677" size="100,100">Zapisujesz na (wirtualnej) tablicy temat zajęć i swoje nazwisko(link: &quot;🖍&quot;)[
+[[Powrót-&gt;Początek]] </tw-passagedata><tw-passagedata pid="13" name="Pozytywnie nastrojony rozpoczynasz pierwszy wykład" tags="" position="200.33333333333334,675.3333333333334" size="100,100">Zapisujesz na (wirtualnej) tablicy temat zajęć i swoje nazwisko(link: &quot;🖍&quot;)[
 //Polityka pieniężna.//
 //prof. dr hab. $imie $nazwisko//
 &lt;img src=&quot;https://media4.giphy.com/media/kvcqO3ojVie2I/giphy.gif?cid=ecf05e47s3y1gcfdnj0l93el819r4lu57j10rxdqjymnvsap&amp;rid=giphy.gif&amp;ct=g&quot; width=60%&gt;
@@ -179,52 +170,53 @@ Bank centralny to instytucja, której zadaniem jest prowadzenie (dokończ zdanie
 
 (link: &quot;🇵🇱&quot;)[W Polsce tę rolę pełni Narodowy Bank Polski. (link: &quot;💶&quot;)[W strefie euro – Europejski Bank Centralny, (link: &quot;🇬🇧&quot;)[w Wielkiej Brytanii – Bank Anglii, (link: &quot;🇺🇸&quot;)[a w USA – Rezerwa Federalna.]]]]
 
-[[Ciąg dalszy]]</tw-passagedata><tw-passagedata pid="15" name="Czas na pierwszy wykład" tags="" position="202,552" size="100,100">(link: &quot;Przed wykładem dla motywacji oglądasz ulubione przedstawienie pasjonującego wykładu ekonomicznego w filmie&quot;)[&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/uhiCFdWeQfA?controls=1&amp;autoplay=1&amp;cc_load_policy=1&amp;cc_lang_pref=en&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+[[Ciąg dalszy]]</tw-passagedata><tw-passagedata pid="14" name="Czas na pierwszy wykład" tags="" position="202,550.3333333333334" size="100,100">(link: &quot;Przed wykładem dla motywacji oglądasz ulubione przedstawienie pasjonującego wykładu ekonomicznego w filmie&quot;)[&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/uhiCFdWeQfA?controls=1&amp;autoplay=1&amp;cc_load_policy=1&amp;cc_lang_pref=en&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
 (text-style:&quot;italic&quot;,&quot;superscript&quot;)[Rada: Dla ułatwienia można uruchomić automatycznie wygenerowanie napisy czy nawet ich tłumaczenie. Niestety nie mogłem tego zrobić przy osadzonym filmie. Scena pochodzi z filmu &quot;Wolny dzień Ferrisa Buellera&quot;.]
 [[Pozytywnie nastrojony rozpoczynasz pierwszy wykład]]
-]</tw-passagedata><tw-passagedata pid="16" name="🥇" tags="" position="73,426.6666666666667" size="100,100">Tak jest, Maria Skłodowska-Curie jest jedyną jak dotąd osobą, która otrzymała Nagrodę Nobla w dwóch różnych dziedzinach &#39;&#39;nauki&#39;&#39;. Inny z laureatów – wybitny chemik Linus Pauling – również otrzymał nagrodę w dwóch kategoriach, przy czym – poza chemią – druga nagroda to był pokojowy Nobel, a więc o charakterze innym od naukowego.
+]</tw-passagedata><tw-passagedata pid="15" name="🥇" tags="" position="71.33333333333333,425" size="100,100">Tak jest, Maria Skłodowska-Curie jest jedyną jak dotąd osobą, która otrzymała Nagrodę Nobla w dwóch różnych dziedzinach &#39;&#39;nauki&#39;&#39;. Inny z laureatów – wybitny chemik Linus Pauling – również otrzymał nagrodę w dwóch kategoriach, przy czym – poza chemią – druga nagroda to był pokojowy Nobel, a więc o charakterze innym od naukowego.
 
 Tak na marginesie, w kontekście ćwiczonej przez nas na zajęciach &#39;&#39;kreatywności&#39;&#39; – również w odniesieniu do zmian na rynku pracy, zachodzących na skutek rozwoju technologii i automatyzacji pracy – warto zapamiętać myśl Paulinga o tym, że (text-style:&quot;italic&quot;,&quot;smear&quot;)[najlepszym sposobem znalezienia dobrego pomysłu jest posiadanie wielu pomysłów]. 
 
 To naprawdę kluczowy czynnik rozwoju kreatywności. 
 
-[[Prowadzenie zajęć na jednej z polskich uczelni&lt;-Powrót]] </tw-passagedata><tw-passagedata pid="17" name="Początki działalności politycznej" tags="" position="602.6666666666667,555.6666666666666" size="100,100">Nowa partia gromadzi ekspertów i naukowców, ale takich co nie tylko potrafią pisać zagmatwane artykuły naukowe, ale też sprawnie komunikować się ze społeczeństwem oraz przechytrzyć politycznego przeciwnika. Błyskawicznie wprowadza nową jakość do debaty publicznej i wywraca stary porządek na scenie politycznej. 
+[[Prowadzenie zajęć na jednej z polskich uczelni&lt;-Powrót]] 
+(if:$m1a is 0)[(link: &quot;🪙&quot;)[(set: $licznik to it + 1)(set: $m1a to 1)]]</tw-passagedata><tw-passagedata pid="16" name="Początki działalności politycznej" tags="" position="602.6666666666667,554" size="100,100">Nowa partia gromadzi ekspertów i naukowców, ale takich co nie tylko potrafią pisać zagmatwane artykuły naukowe, ale też sprawnie komunikować się ze społeczeństwem oraz przechytrzyć politycznego przeciwnika. Błyskawicznie wprowadza nową jakość do debaty publicznej i wywraca stary porządek na scenie politycznej. 
 
 Efektem są przedterminowe wybory, w których partia &quot;$partia&quot; zdobywa samodzielną większość w parlamencie, a więc i władzę.
 
-[[Obejmujesz stanowisko wicepremiera oraz szefa połączonego ministerstwa gospodarki i finansów]]</tw-passagedata><tw-passagedata pid="18" name="Obejmujesz stanowisko wicepremiera oraz szefa połączonego ministerstwa gospodarki i finansów" tags="" position="599.3333333333335,681.6666666666666" size="100,100">Jest wiele problemów, z którymi musi zmierzyć się nowy rząd, ale gdy mówisz, że w najbliższej przyszłości jednym z nich będzie wysoki wzrost cen, to wywołuje to zdziwienie. Wszak od dłuższego czasu nie doświadczaliśmy wysokiego wzrostu cen. 
+[[Obejmujesz stanowisko wicepremiera oraz szefa połączonego ministerstwa gospodarki i finansów]]</tw-passagedata><tw-passagedata pid="17" name="Obejmujesz stanowisko wicepremiera oraz szefa połączonego ministerstwa gospodarki i finansów" tags="" position="597.6666666666669,680" size="100,100">Jest wiele problemów, z którymi musi zmierzyć się nowy rząd, ale gdy mówisz, że w najbliższej przyszłości jednym z nich będzie wysoki wzrost cen, to wywołuje to zdziwienie. Wszak od dłuższego czasu nie doświadczaliśmy wysokiego wzrostu cen. 
 &lt;img src=&quot;https://i.imgur.com/9KnvsTQ.png&quot; height=300px&gt;
-Może bezpośrednio przed wybuchem pandemii wzrost cen nieco przyspieszył, a w pierwszych jego miesiącach wskaźnik cen ciągnęły w górę wybrane produkty, które kupowaliśmy na zapas, ale spowolnienie gospodarcze związane z pandemią wyraźnie ograniczyło wzrost cen. 
+Bezpośrednio przed wybuchem pandemii wzrost cen nieco przyspieszył, a w pierwszych jego miesiącach wskaźnik cen ciągnęły w górę wybrane produkty, które kupowaliśmy na zapas, ale spowolnienie gospodarcze związane z pandemią w kolejnych miesiącach wyraźnie ograniczyło wzrost cen. 
 Uparcie jednak w wywiadach powtarzasz, że powinniśmy podjąć pewne działania dotyczące przeciwdziałania inflacji.
 Masz do wyboru:
 (link: &quot;Czytanie wybranych tytułów prasowych i komentarzy internetowych o sobie&quot;)[
-* &quot;Wicepremier walczy z wzrostem cen, którego nie ma&quot;
+* &quot;Wicepremier(if:$rodzaj is &quot;żeński&quot;)[ka] walczy z wzrostem cen, którego nie ma&quot;
 * &quot;$nazwisko - u mnie byłaby dwója na egzaminie!&quot;, pisze jeden z profesorów związany z poprzednią władzą
-* &quot;Wicepremier $nazwisko - Don Kichot współczesnej ekonomii?&quot;
+* &quot;Wicepremier(if:$rodzaj is &quot;żeński&quot;)[ka] $nazwisko - Don Kichot(if:$rodzaj is &quot;żeński&quot;)[ka] współczesnej ekonomii?&quot;
 * &quot;$nazwisko musi odejść!&quot; - to jeden z najczęstszych komentarzy w internecie, przy którym tylko czasami można spotkać nieśmiałe &quot;ale dopiero przyszedł&quot; 
 
 Teraz nie pozostaje już nic innego jak tylko...
 ]
-[[Przedstawienie nowego planu gospodarczego]] </tw-passagedata><tw-passagedata pid="19" name="Przedstawienie nowego planu gospodarczego" tags="" position="600.6666666666667,805" size="100,100">### Programy socjalne
+[[Przedstawienie nowego planu gospodarczego]] </tw-passagedata><tw-passagedata pid="18" name="Przedstawienie nowego planu gospodarczego" tags="" position="600.6666666666667,803.3333333333334" size="100,100">### Programy socjalne
 Po poprzedniej władzy partia &quot;$partia&quot; odziedziczyła istotne transfery - program 500+, zapowiedzi 13. i 14. emerytury, plany istotnych podwyżek płacy minimalnej. Wszystkie te programy stanowią pewnego rodzaju &#39;&#39;impuls fiskalny&#39;&#39; tj. sprawiają, że społeczeństwo ma większą siłę nabywczą, a więc zgłasza większy zagregowany popyt. To nie jest tak, że takie programy koniecznie i w każdych warunkach muszą powodować wyższą inflację, ale w połączenie z dobrą koniunkturą i niskim bezrobociem (a tak wygląda aktualnie tj. w 2020 roku odbicie po pierwszej fali pandemii) mogą się do tego przyczyniać. Jednocześnie doradcy podpowiadają, że likwidacja tych programów nie była zapowiadana w kampanii i może odbić się negatywnie na poparciu dla partii &quot;$partia&quot;. 
 
 Masz do wyboru dwie opcje. &#39;&#39;Pozostawiasz&#39;&#39; te programy bez zmian lub istotnie je &#39;&#39;redukujesz&#39;&#39;.
 (dropdown: 2bind $socjalne,&quot;Pozostawienie&quot;,&quot;Redukcja&quot;)
 
-[[Przejdź do kolejnej kwestii-&gt;Konflikt z UE]]</tw-passagedata><tw-passagedata pid="20" name="Pakiety ratunkowe" tags="" position="603.6666666666667,1055.6666666666667" size="100,100">## Pakiety ratunkowe
+[[Przejdź do kolejnej kwestii-&gt;Konflikt z UE]]</tw-passagedata><tw-passagedata pid="19" name="Pakiety ratunkowe" tags="" position="603.6666666666667,1054" size="100,100">## Pakiety ratunkowe
 W czasie walki z pandemią władza uruchomiła pewne programy wsparcia dla przedsiębiorstw tzw. tarcze antykryzysowe. Z jednej strony chronią one zatrudnienie i funkcjonowanie przedsiębiorstw (pomijając to, czy mogłyby być lepiej i szczelniej skonstruowane), a z drugiej istotnie zwiększają wydatki państwa i jego całkowite zadłużenie[[📏]]. 
 
-Masz do wyboru dwie opcje. &#39;&#39;Pozostawiasz&#39;&#39; te programy bez zmian lub  je &#39;&#39;likwidujesz&#39;&#39;.
+Masz do wyboru dwie opcje. &#39;&#39;Pozostawiasz&#39;&#39; te programy bez zmian lub je &#39;&#39;likwidujesz&#39;&#39;.
 (dropdown: 2bind $pakiety,&quot;Pozostawienie&quot;,&quot;Likwidacja&quot;)
 
 Ostatnim elementem planu gospodarczego jest polityka pieniężna. Wprawdzie prowadzi ją Narodowy Bank Polski oraz Rada Polityki Pieniężnej, które przynajmniej formalnie są niezależne, ale możesz publicznie wyrazić pewne rekomendacje. I załóżmy, że te rekomendacje będą uwzględnione.
-[[Polityka pieniężna]]</tw-passagedata><tw-passagedata pid="21" name="Konflikt z UE" tags="" position="602.6666666666667,933.6666666666666" size="100,100">### Konflikt z Komisją Europejską od poprzedniego rządu
+[[Polityka pieniężna]]</tw-passagedata><tw-passagedata pid="20" name="Konflikt z UE" tags="" position="602.6666666666667,932" size="100,100">### Konflikt z Komisją Europejską od poprzedniego rządu
 Jak poprzednio – sprawa odziedziczona po poprzednim rządzie. Konflikt z Komisją Europejską i utrzymanie takiego kursu może skutkować wstrzymaniem wypłat z pieniędzy z uchwalonego właśnie specjalnego funduszu odbudowy,  blokadą pozostałych funduszy unijnych, a w długim okresie zwiększa ryzyko polexitu (wyjścia Polski z UE). Taki kurs może przełożyć się na osłabienie zaufania inwestorów zagranicznych do naszej gospodarki, co w krótkim okresie w kontekście inflacji konflikt może osłabić polską walutę, a więc i przyczynić się do wzrostu cen towarów importowanych (w tym paliw).
 
 Możesz &#39;&#39;utrzymać&#39;&#39; konflikt lub porozumieć się z KE w zakresie niezbędnych działań. 
 (dropdown: 2bind $europa,&quot;Konflikt&quot;,&quot;Porozumienie&quot;)
 
-[[Kolejne działania-&gt;Pakiety ratunkowe]]</tw-passagedata><tw-passagedata pid="22" name="📏" tags="" position="752.6666666666667,1056.6666666666667" size="100,100">Oderwijmy się na chwilę od rzeczywistości gry i zastanówmy się, ile rzeczywiście i aktualnie wynosi polski dług publiczny.
+[[Kolejne działania-&gt;Pakiety ratunkowe]]</tw-passagedata><tw-passagedata pid="21" name="📏" tags="" position="752.6666666666667,1055" size="100,100">Oderwijmy się na chwilę od rzeczywistości gry i zastanówmy się, ile rzeczywiście i aktualnie wynosi polski dług publiczny.
 
 Gdy mowa o tej kategorii powinniśmy zwracać uwagę &quot;którego&quot; długu publicznego dyskusja dotyczy. Zerknijmy do tekstu z rp.pl:
 &quot;(...)państwowy dług publiczny (PDP), czyli zadłużenie państwa liczone według polskiej metodologii, na koniec III kw. 2021 r. sięgnął 1 161 mld zł.
@@ -236,17 +228,17 @@ Z jednej strony takie działania pozwoliły na sprawne uruchomienie takich środ
 
 &lt;a href=&quot;https://www.rp.pl/budzet-i-podatki/art19186961-polska-ma-juz-ponad-1-4-bln-zl-dlugu-wedlug-unijnej-metodologii&quot; target=_blank&gt;Źródło&lt;/a&gt;
 
-[[Pakiety ratunkowe&lt;-Powrót]] </tw-passagedata><tw-passagedata pid="23" name="Polityka pieniężna" tags="" position="603.6666666666667,1181.6666666666667" size="100,100">NBP ma zamiar interweniować na rynku walutowym, aby obniżyć kurs złotego (takie działania w rzeczywistości były podjęte w grudniu 2020 roku). Ponadto według zapowiedzi zamierza prowadzić ekspansywną politykę pieniężną, czyli utrzymywać niskie stopy procentowe. Co rekomendujesz?
+[[Pakiety ratunkowe&lt;-Powrót]] </tw-passagedata><tw-passagedata pid="22" name="Polityka pieniężna" tags="" position="603.6666666666667,1180" size="100,100">NBP(if:$m2a is 0)[(link: &quot;🪙&quot;)[(set: $licznik to it + 1)(set: $m2a to 1)]] ma zamiar interweniować na rynku walutowym, aby obniżyć kurs złotego (takie działania w rzeczywistości były podjęte w grudniu 2020 roku). Ponadto według zapowiedzi zamierza prowadzić ekspansywną politykę pieniężną, czyli utrzymywać niskie stopy procentowe. Co rekomendujesz?
 Masz do wyboru dwie opcje. &#39;&#39;Ekspansywną&#39;&#39; lub &#39;&#39;restrykcyjną&#39;&#39; politykę pieniężną.
 (dropdown: 2bind $monetarna,&quot;Ekspansywna&quot;,&quot;Restrykcyjna&quot;)
-[[Przejdź do efektów programu]]</tw-passagedata><tw-passagedata pid="24" name="Stopa rezerw obowiązkowych" tags="" position="194.00000000000003,1192.6666666666665" size="100,100">&#39;&#39;Bank centralny&#39;&#39; określa poziom stopy rezerw obowiązkowych, do którego muszą stosować się banki komercyjne. 
+[[Przejdź do efektów programu]]</tw-passagedata><tw-passagedata pid="23" name="Stopa rezerw obowiązkowych" tags="" position="194.00000000000003,1190.9999999999998" size="100,100">&#39;&#39;Bank centralny&#39;&#39; określa poziom stopy rezerw obowiązkowych, do którego muszą stosować się banki komercyjne. 
 
-(text-style:&quot;underline&quot;)[Banki komercyjne] zaś przechowują oszczędności klientów i udzielają kredytów, ale oprócz tego pełnią jeszcze jedną ważną rolę w gospodarce – kreują pieniądz. W jaki sposób to się odbywa? Czy mogą wytworzyć dowolną ilość pieniądza? Czy jest to szkodliwe dla gospodarki, czy korzystne? Aby odpowiedzieć na te pytania, musimy wyjaśnić, [[czym jest stopa rezerw obowiązkowych]].</tw-passagedata><tw-passagedata pid="25" name="Operacje otwartego rynku" tags="" position="310.9999999999999,1840.6666666666667" size="100,100">Pora na &#39;&#39;operacje otwartego&#39;&#39; rynku. Jest to handel papierami wartościowymi między bankiem centralnym a bankami komercyjnymi. Gdy banki komercyjne kupują papiery wartościowe w banku centralnym, przekazują w zamian gotówkę. Przestaje ona wtedy krążyć w gospodarce. W takiej sytuacji podaż pieniądza w gospodarce zmniejsza się. Natomiast gdy banki komercyjne sprzedają papiery wartościowe do banku centralnego, w zamian otrzymują gotówkę. W rezultacie ilość pieniądza w gospodarce zwiększa się.
+(text-style:&quot;underline&quot;)[Banki komercyjne] zaś przechowują oszczędności klientów i udzielają kredytów, ale oprócz tego pełnią jeszcze jedną ważną rolę w gospodarce – kreują pieniądz. W jaki sposób to się odbywa? Czy mogą wytworzyć dowolną ilość pieniądza? Czy jest to szkodliwe dla gospodarki, czy korzystne? Aby odpowiedzieć na te pytania, musimy wyjaśnić, [[czym jest stopa rezerw obowiązkowych]].</tw-passagedata><tw-passagedata pid="24" name="Operacje otwartego rynku" tags="" position="310.9999999999999,1839" size="100,100">Pora na &#39;&#39;operacje otwartego&#39;&#39; rynku. Jest to handel papierami wartościowymi między bankiem centralnym a bankami komercyjnymi. Gdy banki komercyjne kupują papiery wartościowe w banku centralnym, przekazują w zamian gotówkę. Przestaje ona wtedy krążyć w gospodarce. W takiej sytuacji podaż pieniądza w gospodarce zmniejsza się. Natomiast gdy banki komercyjne sprzedają papiery wartościowe do banku centralnego, w zamian otrzymują gotówkę. W rezultacie ilość pieniądza w gospodarce zwiększa się.
 
-[[Przejdźmy do niestandardowych narzędzi polityki pieniężnej]]</tw-passagedata><tw-passagedata pid="26" name="czym jest stopa rezerw obowiązkowych" tags="" position="194.66666666666669,1347.666666666667" size="100,100">Jeśli część oszczędności musi pozostać w banku w formie rezerwy, to nie może ona zostać przeznaczona na udzielenie kredytu. Wyobraźmy sobie, że stopa rezerw obowiązkowych wynosi 100% i że w całej gospodarce jest wyłącznie 100 zł. W takiej sytuacji 100 zł, które zostanie powierzone bankowi, zostanie w nim w formie rezerwy. Jeśli policzymy ilość pieniądza w gospodarce, to 100 zł będzie w banku i 0 zł w obiegu. 
+[[Przejdźmy do niestandardowych narzędzi polityki pieniężnej]]</tw-passagedata><tw-passagedata pid="25" name="czym jest stopa rezerw obowiązkowych" tags="" position="194.66666666666669,1346.0000000000002" size="100,100">Jeśli część oszczędności musi pozostać w banku w formie rezerwy, to nie może ona zostać przeznaczona na udzielenie kredytu. Wyobraźmy sobie, że stopa rezerw obowiązkowych wynosi 100% i że w całej gospodarce jest wyłącznie 100 zł. W takiej sytuacji 100 zł, które zostanie powierzone bankowi, zostanie w nim w formie rezerwy. Jeśli policzymy ilość pieniądza w gospodarce, to 100 zł będzie w banku i 0 zł w obiegu. 
 
 [[A jak będzie wyglądała sytuacja, gdy stopa rezerw obowiązkowych będzie niższa?]]
-</tw-passagedata><tw-passagedata pid="27" name="Wykład nr 2" tags="" position="193.33333333333334,1722.6666666666667" size="100,100">Wykład nr 2 kontynuuje prezentację tradycyjnych narzędzi polityki pieniężnej. Poprzednio omówiliśmy stopę rezerw obowiązkowych czas na &#39;&#39;stopy procentowe banku centralnego&#39;&#39;.
+</tw-passagedata><tw-passagedata pid="26" name="Wykład nr 2" tags="" position="193.33333333333334,1721" size="100,100">Wykład nr 2 kontynuuje prezentację tradycyjnych narzędzi polityki pieniężnej. Poprzednio omówiliśmy stopę rezerw obowiązkowych czas na &#39;&#39;stopy procentowe banku centralnego&#39;&#39;.
 
 To oprocentowanie, po jakim banki komercyjne pożyczają w banku centralnym. Jeśli są one na niskim poziomie, banki komercyjne pożyczają taniej i same mogą udzielać większej liczby kredytów (tańsze kredyty oznaczają większy popyt na nie). Odwrotnie – przy wyższych stopach procentowych banki udzielą mniejszej ilości kredytów.
 
@@ -254,7 +246,7 @@ To oprocentowanie, po jakim banki komercyjne pożyczają w banku centralnym. J
 Tak więc, żeby obniżyć poziom inflacji trzeba...
 (link-reveal: &quot;obniżyć stopy procentowe&quot;)[ &lt;img src=&quot;https://media3.giphy.com/media/puOukoEvH4uAw/giphy.gif?cid=ecf05e47c1la9royn6dmc5z2itgs2lvinnmvnkcpv5ykc0ee&amp;rid=giphy.gif&amp;ct=g&quot; width=6%&gt;]
 (link-reveal: &quot;podnieść stopy procentowe&quot;)[. Tak jest!
-[[Operacje otwartego rynku]]]</tw-passagedata><tw-passagedata pid="28" name="Przejdź do efektów programu" tags="" position="601.0000000000001,1332.3333333333335" size="100,100">Twój plan gospodarczy został wprowadzony w życie. Po kilkunastu miesiącach jego funkcjonowania tj. w styczniu 2022 roku mamy następujące jego efekty
+[[Operacje otwartego rynku]]]</tw-passagedata><tw-passagedata pid="27" name="Przejdź do efektów programu" tags="" position="601.0000000000001,1330.6666666666667" size="100,100">Twój plan gospodarczy został wprowadzony w życie. Po kilkunastu miesiącach jego funkcjonowania tj. w styczniu 2022 roku mamy następujące jego efekty
 (set: $inflacja to 4.8)
 (if:$socjalne is &quot;Pozostawienie&quot;)[(set: $inflacja to it + 1.0)]
 (if:$europa is &quot;Konflikt&quot;)[(set: $inflacja to it + 0.8)]
@@ -262,16 +254,28 @@ Tak więc, żeby obniżyć poziom inflacji trzeba...
 (if:$monetarna is &quot;Ekspansywna&quot;)[(set: $inflacja to it + 0.9)]
 Wskaźnik inflacji wyniósł $inflacja%.
 
-(if:$inflacja &lt; 5)[Komentatorzy i opinia publiczna krytykują Cię za to, że choć były zapowiedzi dotyczące walki z inflacją, to i tak jest ona wyższa niż była przed objęciem przez Ciebie stanowiska. Z tego powodu, jak i z powodu innych działań grozi Ci dymisja. Możesz udzielić wywiadu, w którym uzasadnisz podjęte przez siebie działania.
+(if:$inflacja &lt; 5)[Komentatorzy i opinia publiczna krytykują Cię za to, że choć były zapowiedzi dotyczące walki z inflacją, to i tak jest ona wyższa niż była przed objęciem przez Ciebie stanowiska. 
 
-(if:$inflacja &gt; 5)[Komentatorzy i opinia publiczna krytykują Cię za to, że choć były zapowiedzi dotyczące walki z inflacją, to jest ona znacznie wyższa niż była przed objęciem przez Ciebie stanowiska. Z tego powodu, jak i z powodu innych działań grozi Ci dymisja. Możesz udzielić wywiadu, w którym uzasadnisz podjęte przez siebie działania.]]
-[[Wywiad]]</tw-passagedata><tw-passagedata pid="29" name="Rozpocznij pracę" tags="" position="802.6666666666667,556.6666666666666" size="100,100">Jak już analizowaliśmy to niejednokrotnie i na zajęciach mikroekonomii (np. problem nowych monopoli technologicznych) oraz na makroekonomii (np. czego nie uwzględnia PKB - Wikipedia a Encarta? jak automatyzacja wpływa na rynek pracy), nowe technologie istotnie wpływają na gospodarkę. 
+W wywiadach tłumaczysz, że odpowiadają za to czynniki globalne. Miała miejsc w wielu krajach świata, a w szczególności w USA, ekspansja monetarna  mająca na celu ratować gospodarki poszczególnych krajów. Pojawiły się także ograniczenia podażowe (zakłócenia w łańcuchach dostaw, polityka Covid Zero w Chinach). Dokładają się do tego kwestie związane z cenami energii, choć ostrzegasz, że w Polsce ten czynnik dopiero będzie miał większe znaczenie w roku 2022. Niektórzy doszukują się również proinflacyjnego działania w globalnym wzroście zainteresowania kryptowalutami, ponieważ konkurują one o realne zasoby (np. zużycie energii). Przeciwnicy polityczni komentują, że Wicepremier(if:$rodzaj is &quot;żeński&quot;)[ka] $nazwisko obwini wszystkich, nawet Bitcoina, żeby uciec od odpowiedzialności.  
+
+Podkreślasz, że dzięki w Polsce wzrost cen jest relatywnie niższy niż w innych krajach i dzięki temu łatwiej podjąć teraz odpowiednie działania, aby utrzymać inflację w ryzach, jednak likwidacja 500+ oraz pakietów ratunkowych dla przedsiębiorstw sprawiła, że w rankingach zaufania do polityków jesteś na jednym z ostatnich miejsc. Nie było to popularne społecznie, a także – jak przyznają eksperci – obniżyło wzrost gospodarczy, ponieważ zmniejszyło konsumpcję (likwidacja 500+) oraz zwiększyło bezrobocie (brak pakietów ratunkowych dla firm).
+]
+(if:$inflacja &gt; 5)[Komentatorzy i opinia publiczna krytykują Cię za to, że choć były zapowiedzi dotyczące walki z inflacją, to jest ona znacznie wyższa niż była przed objęciem przez Ciebie stanowiska. 
+
+(if:$socjalne is &quot;Redukcja&quot;)[Popularności w społeczeństwie nie przysporzyło Ci też zlikwidowanie programu 500+, a dodatkowo eksperci zwracają uwagę na to, że spowolniło to odbicie wzrostu gospodarczego, choć większość się zgadza, że gdyby nie to, to inflacja byłaby jeszcze wyższa.]
+
+(if:$pakiety is &quot;Likwidacja&quot;)[Także likwidacja programów ratunkowych dla przedsiębiorstw nie przysporzyła Ci wielu zwolenników. Przedsiębiorcy są rozżaleni, a eksperci wskazują, że wzrosło przez to bezrobocie i zmniejszyła się konsumpcja, a więc w konsekwencji – tempo wzrostu gospodarczego było niższe niż mogłoby być. W analizach podkreśla się jednak, że gdyby nie to, to inflacja byłaby wyższa.]
+
+(if:$monetarna is &quot;Restrykcyjna&quot;)[Również restrykcyjna polityka monetarna nie cieszyła się dużą popularnością w społeczeństwie – raty kredytów hipotecznych wzrosły, umocnienie złotego pogorszyło sytuację eksporterów, a  firmy mają wyższe koszty pozyskania kapitału. Jednocześnie eksperci zgadzają się, że gdyby nie te działania, to inflacja byłaby wyższa.]]
+
+Partia &quot;$partia&quot;, żeby poprawić swoje notowania w sondażach, decyduje się na dymisję wicepremier(if:$rodzaj is &quot;męski&quot;)[a] gospodarki i finansów. Zgarniasz odprawę(if:$m2b is 0)[(link: &quot;🪙&quot;)[(set: $licznik to it + 1)(set: $m2b to 1)]] i kończysz karierę polityczną.
+[[Dymisja-&gt;Początek]] </tw-passagedata><tw-passagedata pid="28" name="Rozpocznij pracę" tags="" position="802.6666666666667,553.3333333333334" size="100,100">Jak już analizowaliśmy to niejednokrotnie i na zajęciach mikroekonomii (np. problem nowych monopoli technologicznych) oraz na makroekonomii (np. czego nie uwzględnia PKB - Wikipedia a Encarta? jak automatyzacja wpływa na rynek pracy), nowe technologie istotnie wpływają na gospodarkę. 
 
 Wiąże się z tym szereg problemów i zagrożeń (powyższe przykłady), ale i – oczywiście – szans.  
 
 Jak już wspomnieliśmy, Twoim pierwszym zadaniem w pracy są negocjacje na temat kontraktu z jednym z rządów krajów Europy Zachodniej dotyczące nowych metod mierzenia inflacji.
 
-[[Przejdź do spotkania]]</tw-passagedata><tw-passagedata pid="30" name="Przejdź do spotkania" tags="" position="801,682.6666666666666" size="100,100">Tradycyjnie inflacja obliczana jest przez ustalenie koszyka konsumenta i zbieranie informacji o cenach produktów wchodzących w jego skład. 
+[[Przejdź do spotkania]]</tw-passagedata><tw-passagedata pid="29" name="Przejdź do spotkania" tags="" position="801,681" size="100,100">Tradycyjnie inflacja obliczana jest przez ustalenie koszyka konsumenta i zbieranie informacji o cenach produktów wchodzących w jego skład. 
 
 W czasie zebranie dostajesz pytanie: &quot;Czy można podejść do tego zadania w inny sposób przy wykorzystaniu danych z transakcji online?&quot;
 Co odpowiadasz?
@@ -279,28 +283,30 @@ Co odpowiadasz?
 (link: &quot;Zerknij do badań&quot;)[Einav i Levin (2014) w artykule zatytułowanym  //Economics in the Age of Big Data// podkreślali, że mamy do czynienia z rewolucją w gromadzeniu i przetwarzaniu danych i wpłynie to również na badania ekonomiczne. Współcześnie coraz większa część transakcji dokonywana jest online. Zdaniem autorów tego badania dane z dostępnych publicznie źródeł takich jak strony internetowe sklepów, oraz dane, którymi dysponują prywatne podmioty np. operatorzy kart płatniczych, mogą posłużyć do śledzenia dóbr i usług oraz wydatków konsumentów. A w konsekwencji do szybszego, a nawet bardziej dokładnego obliczania wartości inflacji.
 &lt;a href=&quot;https://web.stanford.edu/~leinav/pubs/Science2014.pdf&quot; target=_blank&gt;Link do badań&lt;/a&gt;]
 [[Oczywiście, że można!]]
-</tw-passagedata><tw-passagedata pid="31" name="Nie można!" tags="" position="928.6666666666667,682.6666666666666" size="100,100">Twoja kariera w firmie A. szybko dobiegła końca. Projekt zakończył się niepowodzeniem.
-[[Początek]] </tw-passagedata><tw-passagedata pid="32" name="Oczywiście, że można!" tags="" position="804.6666666666667,804.6666666666666" size="100,100">&quot;Świetnie, ale czy to nie będzie wyraźnie droższe dla zleceniodawcy tj. dla aparatu państwa?&quot;
+</tw-passagedata><tw-passagedata pid="30" name="Nie można!" tags="" position="928.6666666666667,681" size="100,100">Twoja kariera w firmie A. szybko dobiegła końca. Projekt zakończył się niepowodzeniem.
+[[Początek]] </tw-passagedata><tw-passagedata pid="31" name="Oczywiście, że można!" tags="" position="804.6666666666667,803" size="100,100">&quot;Świetnie, ale czy to nie będzie wyraźnie droższe dla zleceniodawcy tj. dla aparatu państwa?&quot;
 [[Tak, i to sporo!]]
-[[Nie, wręcz przeciwnie]]</tw-passagedata><tw-passagedata pid="33" name="Tak, i to sporo!" tags="" position="926.0000000000001,805.6666666666666" size="100,100">Przedstawiciele państwa byli zainteresowani rozwiązaniem, jednak informacja o wysokich kosztach ich zniechęciła. Firma straciła kontrakt, a osoba odpowiedzialna z jego realizację, czyli $imie $nazwisko – pracę. Brutalne.
-[[Początek]] </tw-passagedata><tw-passagedata pid="34" name="Nie, wręcz przeciwnie" tags="" position="902.6666666666667,926.6666666666666" size="100,100">Jak tłumaczysz rozmówcy: &quot;To właśnie tradycyjny proces zbierania informacji o cenach i wydatkach konsumentów jest kosztowny. Wymaga zaangażowania pracowników, którzy odwiedzają sklepy, wysyłania ankiet a później wprowadzania danych do systemu.&quot; 
+[[Nie, wręcz przeciwnie]]</tw-passagedata><tw-passagedata pid="32" name="Tak, i to sporo!" tags="" position="926.0000000000001,804" size="100,100">Przedstawiciele państwa byli zainteresowani rozwiązaniem, jednak informacja o wysokich kosztach ich zniechęciła. Firma straciła kontrakt, a osoba odpowiedzialna z jego realizację, czyli $imie $nazwisko – pracę. Brutalne.
+[[Początek]] </tw-passagedata><tw-passagedata pid="33" name="Nie, wręcz przeciwnie" tags="" position="902.6666666666667,925" size="100,100">Jak tłumaczysz rozmówcy: &quot;To właśnie tradycyjny proces zbierania informacji o cenach i wydatkach konsumentów jest kosztowny. Wymaga zaangażowania pracowników, którzy odwiedzają sklepy, wysyłania ankiet a później wprowadzania danych do systemu.&quot; 
 &quot;Następnie przekonujesz: &quot;Dzięki początkowej inwestycji i umowie z firmą A. podatnicy mogą sporo zaoszczędzić w długim terminie.&quot;
 Te informacje są pozytywnie odbierane przed druga stronę transakcj. Pada jednak pytanie:
 &quot;Czy uzyskane dane nie będą mniej wiarygodne?&quot;
 Co odpowiadasz?
 [[Kto by się tym przejmował?]]
-[[Odwrotnie, będą bardziej dokładne!]]</tw-passagedata><tw-passagedata pid="35" name="Kto by się tym przejmował?" tags="" position="1031,925" size="100,100">Przedstawiciele państwa byli zainteresowani projektem, jednak informacja o braku dokładności ich znięchęciła. Firma straciła kontrakt, a osoba odpowiedzialna za jego realizację, czyli $imie $nazwisko – pracę. Bez litości.
-[[Początek]] </tw-passagedata><tw-passagedata pid="36" name="Odwrotnie, będą bardziej dokładne!" tags="" position="902.6666666666667,1075" size="100,100">Powołujesz się m.in. na badania &lt;a href=&quot;http://poq.oxfordjournals.org/content/75/5/861.abstract&quot; target=_blank&gt;Groves (2011)&lt;/a&gt; , który opisywał, że część osób nie chce brać udziału w badaniach ankietowych. W dodatku takich osób jest coraz więcej.
+[[Odwrotnie, będą bardziej dokładne!]]</tw-passagedata><tw-passagedata pid="34" name="Kto by się tym przejmował?" tags="" position="1031,923.3333333333334" size="100,100">Przedstawiciele państwa byli zainteresowani projektem, jednak informacja o braku dokładności ich znięchęciła. Firma straciła kontrakt, a osoba odpowiedzialna za jego realizację, czyli $imie $nazwisko – pracę. Bez litości.
+[[Początek]] </tw-passagedata><tw-passagedata pid="35" name="Odwrotnie, będą bardziej dokładne!" tags="" position="902.6666666666667,1073.3333333333333" size="100,100">Powołujesz się m.in. na badania &lt;a href=&quot;http://poq.oxfordjournals.org/content/75/5/861.abstract&quot; target=_blank&gt;Groves (2011)&lt;/a&gt; , który opisywał, że część osób nie chce brać udziału w badaniach ankietowych. W dodatku takich osób jest coraz więcej.
 Kontynuujesz: &quot;Tego rodzaju systemy można również łatwiej i taniej kontrolować, a więc wprowadzać ewentualne poprawki.&quot;
 
 W tym momencie rozmówca wydaje się przekonany do rozwiązania, jednak w pewnym momencie pyta wprost:
 &quot;Wszystko piękne, ale przecież te ceny są dostępne w internecie, możemy sami zabrać je i przeanalizować. Za co wam mamy zapłacić?&quot;
 [[Przyznajesz rację rozmówcy]]
-[[Zwracasz uwagę na inne dane, którymi dysponuje firma A.]]</tw-passagedata><tw-passagedata pid="37" name="Przyznajesz rację rozmówcy" tags="" position="1027.6666666666667,1078.3333333333335" size="100,100">Przedstawiciele państwa są zainteresowani projektem, ale postanawiają zrealizować go samodzielnie. Firma nie uzyskała kontraktu, a osoba odpowiedzialna za jego uzyskanie, czyli $imie $nazwisko zostaje zwolniona. Okrutne.
-[[Początek]] </tw-passagedata><tw-passagedata pid="38" name="Zwracasz uwagę na inne dane, którymi dysponuje firma A." tags="" position="902.6666666666667,1225" size="100,100">&quot;Rzeczywiście, ogrom danych jest dostępnych w internecie. Jednak do opracowania wskaźnika inflacji nie wystarczą dane na temat cen.
+[[Zwracasz uwagę na inne dane, którymi dysponuje firma A.]]</tw-passagedata><tw-passagedata pid="36" name="Przyznajesz rację rozmówcy" tags="" position="1027.6666666666667,1076.6666666666667" size="100,100">Przedstawiciele państwa są zainteresowani projektem, ale postanawiają zrealizować go samodzielnie. Firma nie uzyskała kontraktu, a osoba odpowiedzialna za jego uzyskanie, czyli $imie $nazwisko zostaje zwolniona. Okrutne.
+[[Początek]] </tw-passagedata><tw-passagedata pid="37" name="Zwracasz uwagę na inne dane, którymi dysponuje firma A." tags="" position="902.6666666666667,1223.3333333333333" size="100,100">&quot;Rzeczywiście, ogrom danych jest dostępnych w internecie. Jednak do opracowania wskaźnika inflacji nie wystarczą dane na temat cen.
 
 Potrzeba również danych o wydatkach konsumentów, a my – oczywiście z zachowaniem prywatności użytkowników i przepisów RODO – jesteśmy w stanie analizować je niemal w czasie rzeczywistych. Dzięki temu możemy nie tylko podawać dane o inflacji codziennie, ale także stworzyć różne miary inflacji np. dla emerytów, studentów, osób mieszkających w poszczególnych regionach kraju.&quot;
-Te argumenty przekonują negocjatora ze strony rządowej i firma otrzymuje kontrakt. A główny jego wykonawca – $imie $nazwisko – dostaje solidną premię.(link: &quot;💰&quot;)[&lt;img src=&quot;https://i.imgur.com/Fl2xLB7.gif&quot; width=100%&gt;]
+Te argumenty przekonują negocjatora ze strony rządowej i firma otrzymuje kontrakt. A główny jego wykonawca – $imie $nazwisko – dostaje solidną premię.(link: &quot;💰&quot;)[&lt;img src=&quot;https://i.imgur.com/Fl2xLB7.gif&quot; width=100%&gt;
+
+(if:$m3b is 0)[(link: &quot;🪙&quot;)[(set: $licznik to it + 1)(set: $m3b to 1)]]]
 
 [[Początek&lt;-Rozpocznij grę od początku]] 
 
@@ -309,7 +315,7 @@ Możesz jeszcze zerknąć na inne ciekawe badania, które nie zmieściły mi si�
 &lt;a href=&quot;https://www.hbs.edu/faculty/Pages/item.aspx?num=54491&quot; target=_blank&gt;Link do badań&lt;/a&gt;]
 (link: &quot;Zbiór badań z projektu The Billion Prices Project&quot;) [
 &lt;a href=&quot;http://www.thebillionpricesproject.com/our-research/&quot; target=_blank&gt;Link do strony&lt;/a&gt;]
-</tw-passagedata><tw-passagedata pid="39" name="Ciąg dalszy" tags="" position="200.33333333333334,804.3333333333333" size="100,100">Jednym z głównych elementów polityki pieniężnej jest kontrola stabliności cen poprzez wpływ na ilość gotówki znajdującą się w obiegu. Innymi słowy, chodzi więc o wpływ na poziom inflacji.
+</tw-passagedata><tw-passagedata pid="38" name="Ciąg dalszy" tags="" position="200.33333333333334,802.6666666666666" size="100,100">Jednym z głównych elementów polityki pieniężnej jest kontrola stabliności cen poprzez wpływ na ilość gotówki znajdującą się w obiegu. Innymi słowy, chodzi więc o wpływ na poziom inflacji.
 
 Zgłasza się jeden ze studentów. Co robisz?
 [[Olewasz, nie masz czasu na takie rzeczy-&gt;Kontynuujesz wykład]]
@@ -317,18 +323,18 @@ Zgłasza się jeden ze studentów. Co robisz?
 
 (set: $ocena to 3)
 
-</tw-passagedata><tw-passagedata pid="40" name="Pozwalasz na zadanie pytania" tags="" position="130.66666666666663,945.9999999999999" size="100,100">(set: $ocena to 4)
+</tw-passagedata><tw-passagedata pid="39" name="Pozwalasz na zadanie pytania" tags="" position="130.66666666666663,944.3333333333333" size="100,100">(set: $ocena to 4)
 Pytanie jest następujące:
 Czy wszystkie banki centralne mają tak samo sformułowane cele?
 
 Co odpowiadasz?
 (link: &quot;Tak, identycznie&quot;)[&lt;img src=&quot;https://media3.giphy.com/media/puOukoEvH4uAw/giphy.gif?cid=ecf05e47c1la9royn6dmc5z2itgs2lvinnmvnkcpv5ykc0ee&amp;rid=giphy.gif&amp;ct=g&quot; width=6%&gt; ]
 (link-reveal: &quot;Są pewne różnice&quot;)[. Poszczególne banki centralne mają różnie określone cele (np. Rezerwa Federalna ma za zadanie również wspieranie zatrudnienia), jednak sprowadzają się one przede wszystkim do dbania o to, aby inflacja była umiarkowana. Zadaniem banku centralnego jest więc wpływanie na ilość pieniądza w obiegu, tak aby była ona dopasowana do potrzeb gospodarki
-[[Kontynuujesz wykład]]]</tw-passagedata><tw-passagedata pid="41" name="Kontynuujesz wykład" tags="" position="245.66666666666663,945.9999999999999" size="100,100">Bank centralny może więc wpływać na zwiększanie lub zmniejszanie ilości pieniądza w gospodarce. To pierwsze działanie określane jest jako &#39;&#39;ekspansywna polityka monetarna&#39;&#39; (pieniężna), a drugie – jako &#39;&#39;restrykcyjna polityka monetarna&#39;&#39; (pieniężna). 
+[[Kontynuujesz wykład]]]</tw-passagedata><tw-passagedata pid="40" name="Kontynuujesz wykład" tags="" position="245.66666666666663,944.3333333333333" size="100,100">Bank centralny może więc wpływać na zwiększanie lub zmniejszanie ilości pieniądza w gospodarce. To pierwsze działanie określane jest jako &#39;&#39;ekspansywna polityka monetarna&#39;&#39; (pieniężna), a drugie – jako &#39;&#39;restrykcyjna polityka monetarna&#39;&#39; (pieniężna). 
 
 Restrykcyjna polityka monetarna stosowana jest po to, aby zahamować inflację. Celem ekspansywnej polityki monetarnej będzie pobudzenie gospodarki, tj. zwiększenie produkcji i spadek bezrobocia. 
 
-[[Narzędzia polityki monetarnej]]</tw-passagedata><tw-passagedata pid="42" name="Narzędzia polityki monetarnej" tags="" position="190.99999999999994,1072.6666666666665" size="100,100">Banki centralne stosują różne narzędzia wpływania na gospodarkę.
+[[Narzędzia polityki monetarnej]]</tw-passagedata><tw-passagedata pid="41" name="Narzędzia polityki monetarnej" tags="" position="190.99999999999994,1070.9999999999998" size="100,100">Banki centralne stosują różne narzędzia wpływania na gospodarkę.
 
 Wśród tradycyjnych narzędzi, które banki centralne mogą stosować do regulacji ilości pieniądza w gospodarce, są:
 
@@ -336,11 +342,11 @@ Wśród tradycyjnych narzędzi, które banki centralne mogą stosować do 
 - Stopy procentowe
 - Operacje otwartego rynku
 
-Zacznijmy od [[Stopy rezerw obowiązkowych i kreacji pieniądza-&gt;Stopa rezerw obowiązkowych]] </tw-passagedata><tw-passagedata pid="43" name="A jak będzie wyglądała sytuacja, gdy stopa rezerw obowiązkowych będzie niższa?" tags="" position="193.00000000000003,1474.3333333333335" size="100,100">Przyjmijmy więc, że stopa rezerw obowiązkowych wynosi 50%. Jeśli ktoś wpłaci do banku 100 zł, to połowa, a więc 50 zł, będzie musiała zostać w banku w formie rezerwy. Natomiast druga połowa będzie mogła zostać przeznaczona na udzielenie kredytu. Na tym kreacja pieniądza się nie kończy. Ktoś, kto weźmie kredyt, nie będzie potrzebował całej gotówki w danym momencie. Może więc wpłacić ją do kolejnego banku. I ponownie, połowa musi pozostać w banku w formie rezerwy, a druga połowa (25 zł) może być przeznaczona na udzielenie kredytu. Taki proces będzie następował prawie w nieskończoność. Ile pieniądza zostanie łącznie wykreowane dzięki temu, że stopa rezerw obowiązkowych nie wynosi 100%? W wersji maksymalnej: 50 zł kredytu + 25 zł + 12,5 zł + 6,25 zł itd. Łącznie da to 100 zł. A więc w gospodarce będzie teraz oryginalne 100 zł gotówki oraz 100 złotych wykreowane.
+Zacznijmy od [[Stopy rezerw obowiązkowych i kreacji pieniądza-&gt;Stopa rezerw obowiązkowych]] </tw-passagedata><tw-passagedata pid="42" name="A jak będzie wyglądała sytuacja, gdy stopa rezerw obowiązkowych będzie niższa?" tags="" position="193.00000000000003,1472.6666666666667" size="100,100">Przyjmijmy więc, że stopa rezerw obowiązkowych wynosi 50%. Jeśli ktoś wpłaci do banku 100 zł, to połowa, a więc 50 zł, będzie musiała zostać w banku w formie rezerwy. Natomiast druga połowa będzie mogła zostać przeznaczona na udzielenie kredytu. Na tym kreacja pieniądza się nie kończy. Ktoś, kto weźmie kredyt, nie będzie potrzebował całej gotówki w danym momencie. Może więc wpłacić ją do kolejnego banku. I ponownie, połowa musi pozostać w banku w formie rezerwy, a druga połowa (25 zł) może być przeznaczona na udzielenie kredytu. Taki proces będzie następował prawie w nieskończoność. Ile pieniądza zostanie łącznie wykreowane dzięki temu, że stopa rezerw obowiązkowych nie wynosi 100%? W wersji maksymalnej: 50 zł kredytu + 25 zł + 12,5 zł + 6,25 zł itd. Łącznie da to 100 zł. A więc w gospodarce będzie teraz oryginalne 100 zł gotówki oraz 100 złotych wykreowane.
 
 Łączna ilość gotówki w gospodarce to w tym przypadku 200 złotych.
 
-[[Wzór na mnożnik kreacji pieniądza]]</tw-passagedata><tw-passagedata pid="44" name="Wzór na mnożnik kreacji pieniądza" tags="" position="193.00000000000003,1594.3333333333335" size="100,100">Jeśli stopa rezerw obowiązkowych będzie jeszcze niższa, możliwość kreacji pieniądza będzie jeszcze większa. Możemy obliczyć mnożnik kreacji pieniądza, który (text-style:&quot;underline&quot;)[jest odwrotnością stopy rezerw obowiązkowych]. 
+[[Wzór na mnożnik kreacji pieniądza]]</tw-passagedata><tw-passagedata pid="43" name="Wzór na mnożnik kreacji pieniądza" tags="" position="193.00000000000003,1592.6666666666667" size="100,100">Jeśli stopa rezerw obowiązkowych będzie jeszcze niższa, możliwość kreacji pieniądza będzie jeszcze większa. Możemy obliczyć mnożnik kreacji pieniądza, który (text-style:&quot;underline&quot;)[jest odwrotnością stopy rezerw obowiązkowych]. 
 
 A więc jeśli wynosi ona 50% (1/2), mnożnik wynosi 2. 
 
@@ -352,13 +358,13 @@ A jeśli 10%, mnożnik będzie równy (wybierz właściwą opcję)...
 
 Czy bank tworzy w tym momencie coś z niczego? Należy zwrócić uwagę, że bank udostępnia jedynie oszczędności jednych, po to aby inni mogli (oczywiście za opłatą) przez określony w umowie kredytowej czas z tych zasobów korzystać. Kreując pieniądz, bank nie tworzy bogactwa, ponieważ to mogą zrobić ludzie i przedsiębiorstwa, zaciągający kredyty i przeznaczający je na produktywne cele.
 
-[[Wykład nr 2]]]</tw-passagedata><tw-passagedata pid="45" name="Przejdźmy do niestandardowych narzędzi polityki pieniężnej" tags="" position="312.6666666666666,1990.6666666666667" size="100,100">Zacznijmy od tzw. forward guidance. Na czym to polega?
+[[Wykład nr 2]]]</tw-passagedata><tw-passagedata pid="44" name="Przejdźmy do niestandardowych narzędzi polityki pieniężnej" tags="" position="312.6666666666666,1989" size="100,100">Zacznijmy od tzw. forward guidance. Na czym to polega?
 
 To sposób kształtowania polityki pieniężnej, który obejmuje politykę informacyjną banku centralnego. Zapowiedzi banku centralnego jeszcze przed wprowadzeniem realnych działań mogą wpływać na uczestników rynku. 
 
 Uczestnicy - o ile uznają te zapowiedzi za wiarygodne - z wyprzedzeniem dostosowują swoje działania. 
 
-[[Przejdźmy do przykładu]]</tw-passagedata><tw-passagedata pid="46" name="Przejdźmy do przykładu" tags="" position="312.6666666666666,2140.666666666667" size="100,100">Przykładowo, bank centralny sygnalizuje lub informuje, że w przyszłości podstawowe stopy procentowe pozostaną na niskim poziomie. Wówczas banki komercyjne zaczynają stosować luźniejszą politykę kredytową tj. udzielają tańszych kredytów i utrzymują oprocentowanie kredytów długoterminowych na niższym poziomie. 
+[[Przejdźmy do przykładu]]</tw-passagedata><tw-passagedata pid="45" name="Przejdźmy do przykładu" tags="" position="312.6666666666666,2139.0000000000005" size="100,100">Przykładowo, bank centralny sygnalizuje lub informuje, że w przyszłości podstawowe stopy procentowe pozostaną na niskim poziomie. Wówczas banki komercyjne zaczynają stosować luźniejszą politykę kredytową tj. udzielają tańszych kredytów i utrzymują oprocentowanie kredytów długoterminowych na niższym poziomie. 
 
 Uznając zapowiedzi forward guidance za wiarygodne banki zakładają, że w przyszłości będą ewentualnie mogły pożyczyć pieniądze od banku centralnego po niskiej stopie procentowej. Tańsze kredyty w bankach sprawiają, że przedsiębiorcy i osoby prywatne mogą zaciągać więcej kredytów (lub o wyższej wartości), co z kolei może pobudzić gospodarkę tj. zwiększyć zatrudnienie lub popyt na dobra i usługi.
 
@@ -366,11 +372,11 @@ Polityka forward guidance może dotyczyć zarówno poziomu stóp procentowych, j
 
 Na czym polega to ostatnie? Kliknij &lt;a href=&quot;https://www.ecb.europa.eu/ecb/educational/explainers/show-me/html/app_infographic.pl.html&quot; target=_blank&gt;tu&lt;/&gt;, żeby obejrzeć krótką prezentację prezentację z Europejskiego Banku Centralnego.
 
-[[Wykład nr 3]]</tw-passagedata><tw-passagedata pid="47" name="Wykład nr 3" tags="" position="310.9999999999999,2287.333333333334" size="100,100">Inflacja oznacza, że ogólny poziom cen wzrasta. To, że ona występuje jest faktem. Natomiast to, dlaczego występuje – jest przedmiotem dyskusji między ekonomistami. Jedną z głównych teorii inflacji jest teoria monetarystyczna (ilościowa teoria pieniądza), która wskazuje, że ceny rosną, gdy jest za dużo pieniądza w gospodarce. Ilość pieniądza w obiegu powinna być dostosowana do warunków gospodarczych
+[[Wykład nr 3]]</tw-passagedata><tw-passagedata pid="46" name="Wykład nr 3" tags="" position="310.9999999999999,2285.6666666666674" size="100,100">Inflacja oznacza, że ogólny poziom cen wzrasta. To, że ona występuje jest faktem. Natomiast to, dlaczego występuje – jest przedmiotem dyskusji między ekonomistami. Jedną z głównych teorii inflacji jest teoria monetarystyczna (ilościowa teoria pieniądza), która wskazuje, że ceny rosną, gdy jest za dużo pieniądza w gospodarce. Ilość pieniądza w obiegu powinna być dostosowana do warunków gospodarczych
 Przykładowo, jeśli jest wzrost gospodarczy i zawieramy więcej transakcji (i bardziej wartościowe transakcje), to potrzeba więcej pieniędzy do obsługi tych transakcji - inaczej ceny by spadły. Ale jeśli zwiększymy (bank centralny w ramach polityki pieniężnej) ilość pieniądza za bardzo, to będziemy mieć inflację. Opowiadasz słuchaczom o doświadczeniach z Zimbabwe. 
 Jakie są inne przyczyny inflacji? Ogólnie możemy je podzielić na popytowe i podażowe. 
 [[Zacznijmy od popytowych]]
-</tw-passagedata><tw-passagedata pid="48" name="Do przyszłej wersji gry" tags="" position="1998.3333333333335,398.3333333333333" size="100,100">Minigra - lub podobne
+</tw-passagedata><tw-passagedata pid="47" name="Do przyszłej wersji gry" tags="" position="1998.3333333333335,396.66666666666663" size="100,100">Minigra - lub podobne
 &lt;iframe src=&quot;http://www.puzzlescript.net/play.html?p=9867759&quot; width=100% height=300px&gt;&lt;/iframe&gt;
 https://www.puzzlescript.net/Documentation/rules101.html
 
@@ -393,20 +399,14 @@ https://material.io/icons/
 https://www.youtube.com/watch?v=o1moyWbSw4Y
 
 
-Odbierz nagrodę dla najlepszego ministra finansów (link:&quot;🥇&quot;)[&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&amp;autoplay=1&amp;cc_load_policy=1&amp;cc_lang_pref=en&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;]</tw-passagedata><tw-passagedata pid="49" name="Wywiad" tags="" position="599.3333333333335,1482.3333333333335" size="100,100">Dziennikarz zaczyna od następującego pytania:
-&quot;Inflacja jest wyższa niż gdy &quot;(if:$rodzaj is &quot;żeński&quot;)[Pani](if:$rodzaj is &quot;męski&quot;)[Pan] obejmował(if:$rodzaj is &quot;żeński&quot;)[a] stanowisko. Co poszło nie tak?
-
-Zaczynasz od zwrócenia na czynniki globalne. Ekspansja monetarna w wielu krajach świata, a w szczególności w USA, mająca na celu ratować gospodarki poszczególnych krajów, ograniczenia podażowe (zakłócenia w łańcuchach dostaw, polityka Covid Zero w Chinach). Dokładają się do tego kwestie związane z cenami energii, ale przyznajesz, że w Polsce dopiero to będzie miało większe znaczenie w roku 2022. Niektórzy doszukują się również proinflacyjnego działania w globalnym wzroście zainteresowania kryptowalutami, ponieważ konkurują one o realne zasoby (np. zużycie energii).
-
-Przejdźmy do podjętych przez Wicepremier(if:$rodzaj is &quot;męsko&quot;)[a] $nazwisko [[działań-&gt;Podjęte działania]]. 
-</tw-passagedata><tw-passagedata pid="50" name="Zacznijmy od popytowych" tags="" position="305.99999999999983,2432.333333333334" size="100,100">Popytowe czynniki inflacji wiążą się z nadwyżką (link:&quot;zagregowanego popytu&quot;)[AD = konsumpcja + inwestycje + wydatki rządowe + eksport netto]. Może ona być wynikiem np. obniżek stóp procentowych lub innego rodzaju wzrostu podaży pieniądza. Może wynikać również z wyższych wynagrodzeń. Rośnie zagregowany popyt w gospodarce, ale jednocześnie nie jest możliwy dalszy wzrost podaży (gospodarka jest blisko pełni możliwości produkcyjnych)
+Odbierz nagrodę dla najlepszego ministra finansów (link:&quot;🥇&quot;)[&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&amp;autoplay=1&amp;cc_load_policy=1&amp;cc_lang_pref=en&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;]</tw-passagedata><tw-passagedata pid="48" name="Zacznijmy od popytowych" tags="" position="305.99999999999983,2430.6666666666674" size="100,100">Popytowe czynniki inflacji wiążą się z nadwyżką (link:&quot;zagregowanego popytu&quot;)[AD = konsumpcja + inwestycje + wydatki rządowe + eksport netto]. Może ona być wynikiem np. obniżek stóp procentowych lub innego rodzaju wzrostu podaży pieniądza. Może wynikać również z wyższych wynagrodzeń. Rośnie zagregowany popyt w gospodarce, ale jednocześnie nie jest możliwy dalszy wzrost podaży (gospodarka jest blisko pełni możliwości produkcyjnych)
 (link: &quot;Narysujmy wykres na tablicy&quot;)[
 &lt;img src=&quot;https://i.imgur.com/sAz6Tsk.gif&quot; width=80%&gt;]
 Jeśli gospodarka jest bliska stanowi pełnego wykorzystania czynników produkcji (pełne zatrudnienie), to dalszy wzrost popytu doprowadzi do wzrostu cen, a nie zwiększenia produkcji (nie ma &quot;z czego&quot; zwiększać produkcji).
 Zdarza się to np. w lub po okresach dynamicznego wzrostu gospodarczego - przegrzanie gospodarki. Mogą się do tego przyczynić również takie czynniki jak dynamiczny wzrost płac, zwiększony optymizm konsumentów czy rosnące ceny mieszkań. Warto zwrócić uwagę na to, że te czynniki są ze sobą powiązane – przykładowo rosnące wynagrodzenia sprawiają, że konsumenci bardziej optymistycznie postrzegają swoją przyszłość. W rezultacie niektórzy z nich mogą rozglądać się za kupnem domu lub mieszkania, co może powodować wzrost cen mieszkań. Inni, tj. ci którzy już mieszkania, czują się przez to bogatsi i zwiększają popyt itd.
 (link:&quot;Może jakiś przykład?&quot;)[Na przykład, w latach 80. XX wieku w Wielkiej Brytanii miał miejsce szybki wzrost gospodarczy, który był m.in. rezultatem cięć podatkowych oraz obniżek stóp procentowych. Ceny mieszkań wzrosły o około 30%. Zwiększyło to optymizm konsumentów, co doprowadziło do większych wydatków. Skutkiem tego był właśnie relatywnie szybki, ponad pięcioprocentowy wzrost gospodarczy (długookresowa średnia wówczas to ok. 2,5%). Firmy przestały nadążać ze wzrostem produkcji za zwiększonym popytem, co w rezultacie doprowadziło do wzrostu cen.]
 (link: &quot;A co z tzw. drukowaniem pieniędzy?&quot;)[Poznana już przez nas teoria monetarystyczna, która tłumaczyła hiperinflację w Zimbabwe (jak też inne przykłady hiperinflacji np. w Niemczech po I wojnie światowej). Dlaczego np. istotne zwiększenie ilości pieniądza w gospodarce po globalnym kryzysie finansowym lat 2007-2009 nie przełożyło się wówczas na wzrost cen? W skrócie - nie przełożyło się to na zwiększoną akcję kredytową. Szczegóły &lt;a href=&quot;https://www.economicshelp.org/blog/111/inflation/money-supply-inflation/&quot; target=_blank&gt;w tym poście&lt;/a&gt; ]
-[[Przejdźmy do czynników podażowych]]</tw-passagedata><tw-passagedata pid="51" name="Przejdźmy do czynników podażowych" tags="" position="307.6666666666665,2582.333333333334" size="100,100">Czynniki podażowe to wzrost kosztów lub problemy w łańcuchach dostaw. Mogą wynikać ze wzrostu wynagrodzeń, z dewaluacji waluty, wzrostu obciążeń podatkowych, a także z podniesionych oczekiwań inflacyjnych.
+[[Przejdźmy do czynników podażowych]]</tw-passagedata><tw-passagedata pid="49" name="Przejdźmy do czynników podażowych" tags="" position="307.6666666666665,2580.6666666666674" size="100,100">Czynniki podażowe to wzrost kosztów lub problemy w łańcuchach dostaw. Mogą wynikać ze wzrostu wynagrodzeń, z dewaluacji waluty, wzrostu obciążeń podatkowych, a także z podniesionych oczekiwań inflacyjnych.
 Wzrost kosztów przesuwa krzywą zagregowanej podaży w lewo, czego rezultatem jest wzrost cen.
 (link: &quot;Narysujmy wykres na tablicy&quot;)[&lt;img src=&quot;https://i.imgur.com/nRjBY8V.gif&quot; width=80%&gt;]
 Wzrost kosztów w przedsiębiorstwach może wynikać m.in. ze wzrostu wynagrodzeń, wzrostu obciążeń podatkowych lub wzrostu cen zużywanych materiałów lub energii.
@@ -416,13 +416,16 @@ Jako materiały rozszerzające – dwa ciekawe wątki na Twitterze:
 1. Ricardo Reis o tym, jak różne teorie inflacji tłumaczą, że ona teraz ma miejsce i że to rzadkie w ekonomii, żeby wszystkie główne teorie sugerowały to samo: &lt;a href=&quot;https://twitter.com/R2Rsquared/status/1459883400341434372&quot; target=_blank&gt;link&lt;/a&gt; 
 2. Nikodem Szewczyk o debacie Krugman vs. Summers: &lt;a href=&quot;https://twitter.com/nikodem_szew/status/1484579828300922884&quot; target=_blank&gt;link&lt;/a&gt; 
 
-Koniec wykładów! 
-[[Wróć do początku-&gt;Początek]] </tw-passagedata><tw-passagedata pid="52" name="Untitled Passage" tags="" position="1985,840" size="100,100">W wywiadach odpowiadasz, że podjęte zostały pewne działania i gdyby nie to, inflacja byłaby jeszcze wyższa a reszta inflacji wynika z czynników globalnych takich jak problemy w łańcuchach dostaw. Zwracasz uwagę, że w innych krajach świata również inflacja jest na wyższym poziomie. Argumentujesz, że gdyby wzrost cen w Polsce był wyższy to jeszcze trudniej byłoby z nią walczyć. 
+Koniec wykładów! (if:$m1b is 0)[(link: &quot;🪙&quot;)[(set: $licznik to it + 1)(set: $m1b to 1)]]
+[[Wróć do początku-&gt;Początek]] </tw-passagedata><tw-passagedata pid="50" name="Untitled Passage" tags="" position="1985,838.3333333333334" size="100,100">W wywiadach odpowiadasz, że podjęte zostały pewne działania i gdyby nie to, inflacja byłaby jeszcze wyższa a reszta inflacji wynika z czynników globalnych takich jak problemy w łańcuchach dostaw. Zwracasz uwagę, że w innych krajach świata również inflacja jest na wyższym poziomie. Argumentujesz, że gdyby wzrost cen w Polsce był wyższy to jeszcze trudniej byłoby z nią walczyć. 
 W wywiadach bronisz się tym, że inflacja w innych krajach świata jest również podwyższona. Jednak wielu komentatorów podkreśla, że w innych krajach świata jest ona na niższym poziomie. Poparcie dla partii &quot;$partia&quot; zaczęło spadać z powodu wysokiej inflacji, a partia ratowała się dymisją autora planu ekonomicznego – $imie $nazwisko
 
-Możesz za to odebrać nagrodę dla najlepszego ministra finansów (link:&quot;🏆&quot;)[&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&amp;autoplay=1&amp;cc_load_policy=1&amp;cc_lang_pref=en&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;]</tw-passagedata><tw-passagedata pid="53" name="Podjęte działania" tags="" position="597.6666666666669,1630.6666666666667" size="100,100">(plan jest taki, żeby tu w powrócić do efekty podjętych działań i wskazać na ich konsekwencje w odniesieniu do inflacji, ale i do wzrostu gospodarczego i bezrobocia)
+Możesz za to odebrać nagrodę dla najlepszego ministra finansów (link:&quot;🏆&quot;)[&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&amp;autoplay=1&amp;cc_load_policy=1&amp;cc_lang_pref=en&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;]
 
-[[Początek]] </tw-passagedata></tw-storydata>
+(css: &quot;color: red; font-size: 0.5em&quot;)
+
+Z tego powodu, jak i z powodu innych działań grozi Ci dymisja. 
+Obwiń Tuska</tw-passagedata><tw-passagedata pid="51" name="🏆" tags="" position="1110.3333333333335,106.66666666666664" size="100,100">Kod do punktu bonusowego to $imie-$nazwisko-$partia-(random: 555,559)</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,i=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){a=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(a)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
