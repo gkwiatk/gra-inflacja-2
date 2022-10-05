@@ -27,7 +27,7 @@
 )(enchant:?link,
 	(color:blue) +
 	(hover-style: (color:blue) + (text-style:&#39;smear&#39;))
-)</tw-passagedata><tw-passagedata pid="3" name="Footer" tags="footer" position="898.3333333333334,96.66666666666664" size="100,100">(append:?sidebar)[(icon-fullscreen:)(icon-restart:)(b4r:&quot;dotted&quot;)+(b4r-colour:grey,grey,grey,grey)+(css: &quot;color: #565656;&quot;)[(icon-counter: bind $licznik, &quot;/6&quot;)]]\
+)</tw-passagedata><tw-passagedata pid="3" name="Footer" tags="footer" position="898.3333333333334,96.66666666666664" size="100,100">(append:?sidebar)[(icon-fullscreen:)(icon-restart:)(b4r:&quot;dotted&quot;)+(b4r-colour:grey,grey,grey,grey)+(css: &quot;color: #565656;&quot;)[(icon-counter: bind $licznik, &quot;/7&quot;)]]\
 (if:$STYLE is a str)[(display:$STYLE)]
 
 
@@ -48,7 +48,7 @@ Ponadto, w tej wersji zostało wprowadzonych kilka rozszerzeń m.in. możliwoś�
 (_styleLink:&quot;Styl 2&quot;) ~ \
 (_styleLink:&quot;Resetuj&quot;)
 
-Ponadto dostępny jest również przycisk, który uruchamia grę na pełnym ekranie (kwadratowa ikonka po lewej), a także przycisk restartu postępu i wyglądu gry (zaokrąglona strzałka). Oprócz tego na każdym etapie gry widoczny jest licznik zebranych monet. Aby zebrać monetę kliknij ikonę (if:$m0 is 0)[(link: &quot;🪙&quot;)[(set: $licznik to it + 1)(set: $m0 to 1). Tak właśnie, to pierwsza z 7 monet umieszczonych w grze. 
+Ponadto dostępny jest również przycisk, który uruchamia grę na pełnym ekranie (kwadratowa ikonka po lewej), a także przycisk restartu postępu i wyglądu gry (zaokrąglona strzałka). Oprócz tego na każdym etapie gry widoczny jest licznik zebranych monet. Aby zebrać monetę kliknij ikonę (if:$m0 is 0)[(link: &quot;🪙&quot;)[(set: $licznik to it + 1)(set: $m0 to 1). Tak właśnie, to pierwsza z 7 monet umieszczonych w grze. ]]
 (text-style:&quot;superscript&quot;)[Uwaga! Przycisk &quot;undo&quot; w menu po lewej stronie &quot;cofa&quot; decyzję, a więc jeśli chcemy po zdobyciu punktu powrócić do poprzedniego ekranu to lepiej wybrać tekstowy przycisk &quot;Powrót&quot; lub &quot;Wróć&quot;. Inaczej punkty zostaną cofnięte.]
 
 =|=
